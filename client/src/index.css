@@ -1,0 +1,84 @@
+/* Global CSS Variables for Theming */
+:root {
+  /* Light Theme Colors */
+  --bg-primary: #f3f4f6; /* Light gray background for overall app */
+  --bg-secondary: #ffffff; /* White background for cards/sections */
+  --text-primary: black; /* Dark text for main content */
+  --text-secondary: #4b5563; /* Muted text for descriptions/footers */
+  --button-primary-bg: #69b5f8; /* Blue for primary buttons */
+  --button-primary-hover: #477ae7; /* Darker blue on hover */
+  --button-focus-ring: #3b82f6; /* Focus ring color */
+  --border-color: #d1d5db; /* Light border color */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Dark Theme Overrides */
+html.dark {
+  --bg-primary: #111827; /* Dark background for overall app */
+  --bg-secondary: #1f2937; /* Darker gray background for cards/sections */
+  --text-primary: #f9fafb; /* Light text for main content */
+  --text-secondary: #9ca3af; /* Lighter muted text */
+  --button-primary-bg: #9333ea; /* Purple for primary buttons in dark mode */
+  --button-primary-hover: #7e22ce; /* Darker purple on hover */
+  --button-focus-ring: #9333ea; /* Focus ring color */
+  --border-color: #374151; /* Darker border color */
+  --shadow-color: rgba(0, 0, 0, 0.5); /* More pronounced shadow */
+}
+
+/* Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary); /* Apply theme background */
+  color: var(--text-primary); /* Apply theme text color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+
+#root {
+  max-height: 100vh;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding is included in element's total width/height */
+}
+
+/* General button styling for theme toggle and future buttons */
+.theme-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px; /* Fully rounded */
+  background-color: var(--button-primary-bg);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px var(--shadow-color),
+    0 2px 4px -2px var(--shadow-color);
+  transition: background-color 0.3s ease, transform 0.1s ease,
+    box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.theme-button:hover {
+  background-color: var(--button-primary-hover);
+  transform: translateY(-1px); /* Slight lift effect */
+}
+
+.theme-button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--button-focus-ring);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 300;
+}

@@ -1,0 +1,106 @@
+.header-component {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid black;
+}
+
+.header-title {
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 0;
+  line-height: 1;
+}
+
+.header-search-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.back-button {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.back-button img {
+  width: 30px;
+}
+
+.back-button:hover {
+  background-color: #f8f8f8;
+}
+
+.header-title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f1f5f9;
+  border-radius: 9999px; /* This makes it a pill shape */
+  padding: 0.75rem 1.5rem;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.search-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.75rem;
+}
+
+.search-input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+/* Dark theme specific styling */
+.dark .header-title {
+  color: #e0e0e0;
+}
+
+.dark .subtitle {
+  color: #a0a0a0;
+}
+
+.dark .back-button {
+  background-color: #4a5568;
+}
+
+.dark .back-button:hover {
+  background-color: #64748b;
+}
+
+.dark .search-bar {
+  background-color: #4a5568;
+}
+
+.dark .search-input {
+  color: #e0e0e0;
+}
+
+.dark .search-input::placeholder {
+  color: #a0a0a0;
+}

@@ -1,0 +1,165 @@
+/* Import statements should be at the very top of the file */
+@import "./../CreateProjectModal/CreateProjectModal.css"; /* Keep this if you need styles from it */
+
+/* Re-use or define generic modal styles that apply across all modals */
+/* You might have .modal-overlay, .modal-container, .modal-header, .close-button, .modal-title already defined elsewhere,
+   but I'll include them here with ShareModal-specific overrides if needed. */
+
+/* Base modal overlay, likely common across all modals */
+.modal-overlay.sharing {
+  /* Adding .sharing for specificity if needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Base modal container, likely common across all modals */
+.modal-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px; /* Adjust as needed */
+  padding: 2rem;
+  position: relative; /* For positioning the close button */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem; /* Added margin for spacing */
+  gap: 10px;
+}
+
+.modal-header .icon img {
+  width: 19px;
+  height: 19px;
+  margin-right: 2px;
+}
+
+.modal-title {
+  font-size: 1.6rem; /* Larger, more prominent title */
+  font-weight: 700;
+  color: #333333;
+  flex-grow: 1; /* Allow title to take available space */
+  padding-left: 0; /* Remove padding-left from .logo-with-heading .modal-title */
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 2rem; /* Larger close icon */
+  color: #888888;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.close-button:hover {
+  color: #555555;
+  transform: rotate(90deg); /* Subtle animation on hover */
+}
+
+/* Share Modal Specific Styles */
+
+.share-modal-body-text {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.share-link-input {
+  background-color: #f0f4f8;
+  border: 1px dashed #c0c0c0;
+  cursor: text;
+  user-select: all;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px 15px; /* Added padding for better appearance */
+  border-radius: 6px; /* Rounded corners */
+  font-size: 0.9rem; /* Consistent font size */
+  color: #333; /* Darker text color */
+}
+
+/* Renamed from .create-button */
+.share-copy-button {
+  background-color: #e7eef5;
+  color: #333333; /* Darker text for better contrast */
+  display: flex;
+  justify-content: center; /* Center content */
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  padding: 12px 20px; /* More generous padding */
+  border: none;
+  border-radius: 8px; /* Consistent rounded corners */
+  font-size: 1rem; /* Slightly larger font */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  margin-top: 20px; /* Adjusted margin-top for better spacing */
+  width: 100%; /* Make it full width within the modal body */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+}
+
+.share-copy-button:hover {
+  background-color: #d5e6f7;
+  /* transform: translateY(-1px); Subtle lift effect */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.share-copy-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.share-copy-button .link-icon {
+  width: 20px; /* Adjust icon size */
+  height: 20px;
+  margin-right: 0; /* Removed margin-right as gap handles spacing */
+}
+
+/* Renamed from .modal-footer .modal-btn-cancel to be specific to share modal */
+.share-modal-footer-button {
+  margin-top: 25px; /* More space for the main action button */
+  background-color: #69b5f8;
+  width: 100%;
+  color: #ffffff; /* Changed to white for better contrast on blue */
+  font-size: 1.05rem; /* Slightly larger font */
+  font-weight: 600;
+  padding: 12px 20px; /* Consistent padding */
+  border: none;
+  border-radius: 8px; /* Consistent rounded corners */
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.share-modal-footer-button:hover {
+  background-color: #5aaff9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.share-modal-footer-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the modal-body has consistent padding if not defined elsewhere */
+.modal-body {
+  padding-bottom: 0; /* Remove default padding bottom if it conflicts with the new footer button */
+}
+
+/* Optional: If you use the modal-body > .modal-submit-button from RenameModal for the publish button,
+   you might not need this specific ShareModal-footer-button.
+   If this is still a "cancel" or "done" button for the share modal, keep it. */

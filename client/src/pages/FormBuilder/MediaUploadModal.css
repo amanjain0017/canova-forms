@@ -1,0 +1,168 @@
+/* components/MediaUploadModal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.media-upload-modal {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeInScale 0.2s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.media-upload-modal h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.media-upload-modal .drop-area {
+  border: 2px dashed #a0a0a0;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.media-upload-modal .drop-area.drag-active {
+  border-color: #007bff;
+  background-color: #e6f2ff;
+  color: #007bff;
+}
+
+.media-upload-modal .drop-area p {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.media-upload-modal .browse-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: background-color 0.2s;
+}
+
+.media-upload-modal .browse-button:hover {
+  background-color: #0056b3;
+}
+
+.media-upload-modal .url-input-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.media-upload-modal .or-text {
+  font-weight: bold;
+  color: #555;
+  font-size: 1.1em;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.media-upload-modal .or-text::before,
+.media-upload-modal .or-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ccc;
+}
+
+.media-upload-modal .or-text::before {
+  left: 0;
+}
+
+.media-upload-modal .or-text::after {
+  right: 0;
+}
+
+.media-upload-modal .url-input-section input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.media-upload-modal .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.media-upload-modal .cancel-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.media-upload-modal .cancel-button:hover {
+  background-color: #5a6268;
+}
+
+.media-upload-modal .upload-button {
+  background-color: rgb(25, 25, 25);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.media-upload-modal .upload-button:disabled {
+  background-color: grey; /* Lighter green when disabled */
+  cursor: not-allowed;
+}
+
+.media-upload-modal .upload-button:hover:not(:disabled) {
+  background-color: black;
+}

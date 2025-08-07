@@ -1,0 +1,182 @@
+@import "./../CreateProjectModal/CreateProjectModal.css";
+
+.section-group {
+  margin-bottom: 7px;
+  border-radius: 8px;
+  padding: 2px 2px;
+  background-color: #f9f9f8;
+}
+
+.section-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.logo-with-heading {
+  display: flex;
+}
+
+.logo-with-heading .modal-title {
+  padding-left: 13px;
+}
+
+.control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 9px;
+}
+
+.control-text {
+  font-size: 1rem;
+  color: black;
+}
+
+.change-button,
+.manage-button {
+  background: none;
+  border: none;
+  color: #6a82fb; /* Blue color for links/buttons */
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.change-button:hover,
+.manage-button:hover {
+  background-color: #e0e5ff;
+}
+
+/* Share section specific styles */
+.share-section {
+  background-color: #ffffff; /* White background for the nested share section */
+}
+
+.email-list {
+  margin-bottom: 5px;
+}
+
+.email-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background-color: #f0f4f8;
+  /* padding: 8px; */
+  border-radius: 6px;
+  border: 1px solid #e7eef5;
+}
+
+.email-input {
+  flex-grow: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: white; /* Ensure it's white inside the email item */
+}
+
+.email-input:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.role-selector-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.role-selector {
+  padding: 8px 25px 8px 10px; /* Padding for arrow space */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #333;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%20197.6c-4.2%204.3-9.5%206.4-15%206.4H20.4c-5.5%200-10.8-2.1-15-6.4-8.3-8.4-8.3-22%200-30.4l118.2-118.2c8.3-8.4%2022-8.4%2030.4%200l118.2%20118.2c8.3%208.4%208.3%2022%200%2030.4z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px top 50%;
+  background-size: 12px auto;
+}
+
+.role-selector:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.remove-email-button {
+  background: none;
+  border: none;
+  color: #e53e3e;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.remove-email-button:hover {
+  color: #c53030;
+}
+
+.add-mail-section {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.add-mail-section .email-input {
+  flex-grow: 1;
+  background-color: #e7eef5; /* Consistent with other inputs */
+}
+
+.new-email-role {
+  width: 5rem;
+  flex-shrink: 0;
+}
+
+.add-mail-button {
+  background-color: #6a82fb;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  width: 37%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 4px;
+}
+
+.add-mail-button:hover {
+  background-color: #5870f7;
+}
+
+/* Override .create-button for the main Publish button */
+.modal-body > .create-button {
+  margin-top: 25px; /* More space above the final publish button */
+}
+
+.modal-body .create-button {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #e7eef5;
+}

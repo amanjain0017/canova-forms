@@ -1,0 +1,1264 @@
+/* General Layout */
+.form-builder-page {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f7f7f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  color: #333;
+}
+
+.form-builder-main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* REMOVE OR CHANGE THIS: overflow: hidden; */
+  /* If you want a slight border/margin around the *entire* main content area, use padding */
+  padding: 5px; /* Replaced margin with padding to keep content inside the bordered area */
+  border: 2px solid black;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: white;
+  margin: 5px;
+
+  /* Crucially, if you remove `overflow: hidden`, you need to manage the height of this flex container.
+     If it's inside `form-builder-page` which is `100vh`, and this is `flex-grow: 1`, it should work. */
+}
+
+.form-builder-action {
+  display: flex;
+}
+
+/* Header */
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-bottom: 2px solid black;
+  flex-shrink: 0;
+}
+
+.header-title-section {
+  flex-grow: 1;
+}
+
+.page-title-editable {
+  font-size: 1.95rem;
+  font-family: 600;
+  color: black;
+}
+
+.header-left {
+}
+
+.header-right {
+  display: flex;
+  gap: 22px;
+  margin-left: 20px;
+}
+
+.header-right .preview-button {
+  background-color: #e7eef5;
+}
+
+.form-title-input {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: text;
+  padding: 5px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s;
+  min-width: 200px;
+}
+
+.form-title-input:focus {
+  border-bottom: 2px solid #0c4a6e;
+}
+
+.header-action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.black-buttons {
+  background-color: black;
+}
+
+.preview-button,
+.save-button {
+  padding: 10px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.save-button {
+  background-color: rgb(29, 29, 29);
+  color: #fff;
+}
+
+.preview-button:hover {
+  background-color: #f0f0f0;
+}
+
+.save-button:hover {
+  background-color: black;
+  transform: none;
+}
+
+/* Sidebar */
+.form-builder-sidebar {
+  width: 256px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f8f8f8;
+  flex-shrink: 0;
+  max-height: 100vh;
+  box-sizing: border-box;
+
+  /* Add theme variables if you have them defined elsewhere */
+  /* For light theme (default): */
+  --text-color: #333;
+  --primary-color-light: #e7eef5;
+  --primary-color-dark: #0056b3; /* Used for active text color */
+  --hover-bg: #f0f0f0;
+  --dot-inactive-color: #ccc;
+  --dot-active-color: #333; /* Black for active dot */
+}
+
+.form-builder-sidebar.dark {
+  background-color: #2d3748; /* Dark background */
+  --text-color: #e0e0e0;
+  --primary-color-light: #1e3a8a; /* Darker blue for active bg */
+  --primary-color-dark: #90cdf4; /* Lighter blue for active text color */
+  --hover-bg: #4a5568;
+  --dot-inactive-color: #666; /* Darker inactive dot */
+  --dot-active-color: #eee; /* Lighter dot for dark mode */
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #b3b3b3;
+  font-family: "Inter";
+}
+
+.page-list {
+  flex-grow: 1;
+  padding: 20px 0;
+  overflow-y: auto; /* Makes only the page list scrollable */
+}
+
+.page-item {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  color: black;
+}
+
+.page-item:hover {
+  background-color: #f0f0f0;
+}
+
+.page-item.active {
+  background-color: #e7eef5;
+}
+
+.page-name-with-dots {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-page-button {
+  width: 100%;
+  padding: 9px 12px;
+  background-color: #e7eef5;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: background-color 0.2s;
+  border: none;
+}
+
+.plus-icon {
+  margin-right: 10px;
+}
+
+.add-page-button:hover {
+  background-color: #dfedfb;
+}
+
+.sidebar-footer {
+  padding-top: 20px;
+  flex-shrink: 0; /* Prevents the footer from shrinking */
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  gap: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.form-builder-sidebar .page-item.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none; /* Prevents click events from firing */
+}
+
+.form-builder-sidebar .add-page-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.condition-dots-container {
+  display: flex;
+  flex-direction: column; /* Stack dots vertically */
+  gap: 3px; /* Space between the two dots */
+  margin-left: 10px; /* Space between page name and dots */
+  flex-shrink: 0; /* Prevent container from shrinking */
+}
+
+.condition-dot {
+  width: 8px; /* Size of the dot */
+  height: 8px; /* Size of the dot */
+  border-radius: 50%; /* Makes it a perfect circle */
+  background-color: var(
+    --dot-inactive-color
+  ); /* Use variable for inactive color */
+  transition: background-color 0.2s ease;
+}
+
+.condition-dot.active {
+  background-color: var(
+    --dot-active-color
+  ); /* Use variable for active dot color */
+}
+
+/* Canvas */
+/* General canvas styling */
+.form-canvas-wrapper {
+  flex-grow: 1; /* Takes up all available vertical space in its flex parent (.form-builder-main) */
+  padding: 15px; /* Padding *inside* the scrollable area */
+  overflow-y: auto; /* Use 'auto' so scrollbar only appears when needed */
+  background-color: #fefdfd;
+  height: 80vh;
+}
+
+.form-canvas {
+  /* min-height: calc(100% - 40px); */
+  padding: 30px 35px;
+  padding-bottom: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+/* .form-section.selected {
+  border-color: #0c4a6e;
+} */
+
+.form-element-card {
+  padding: 15px;
+  margin-bottom: 15px;
+
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease-in-out;
+  cursor: default; /* Default cursor for most elements */
+}
+
+/* Specific styling for selectable elements (Image and Video) */
+.form-element-card.image-element,
+.form-element-card.video-element {
+  cursor: pointer; /* Indicate clickability for these types */
+}
+
+.form-element-card.image-element:focus,
+.form-element-card.video-element:focus {
+  border-color: #007bff; /* Highlight border */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Glow effect */
+  border-radius: 5px;
+}
+
+.form-element-card:hover {
+  box-shadow: none;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.question-text-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.question-number {
+  font-weight: 500;
+  color: black;
+  font-size: 1rem;
+}
+
+.editable-text {
+  border-bottom: 1px dashed #ccc;
+  outline: none;
+  cursor: text;
+  padding: 2px 4px;
+  color: black;
+}
+
+.editable-text:focus {
+  border-bottom: 1px solid #0c4a6e;
+}
+
+.question-type-selector {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  background-color: #fff;
+  cursor: pointer;
+  appearance: none;
+}
+
+.question-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.option-item input[type="radio"],
+.option-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.long-answer-textarea,
+.short-answer-input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #fefefe;
+}
+
+.long-answer-textarea {
+  min-height: 100px;
+}
+
+.date-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-input {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.linear-scale-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stars .star {
+  color: #ffc107;
+  font-size: 1.5rem;
+}
+
+.file-upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  color: #888;
+}
+
+.text-element {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 10px;
+  background: transparent;
+  border: none;
+}
+
+.image-element img,
+.video-element iframe {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Elements Panel */
+.form-elements-panel {
+  width: 300px;
+  background-color: #f0f4f8;
+  padding: 15px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid black;
+  border-top: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+  height: 89vh;
+  border-bottom-right-radius: 8px;
+}
+
+.elements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 13px;
+}
+
+.add-element-button {
+  width: 100%;
+  padding: 6px 35px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.panel-icons {
+  width: 20px;
+}
+
+.input[type="color"] {
+  border: none;
+  width: 35px;
+  height: 34px;
+  background-color: white;
+}
+
+.add-element-button:hover {
+  background-color: #e9e9e9;
+}
+
+.color-picker-section h4 {
+  font-style: italic;
+  color: black;
+  font-weight: 400;
+  margin-bottom: 3px;
+  font-family: "Inter";
+}
+
+.color-picker-item {
+  margin-bottom: 15px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 11px 16px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.color-picker-item pre {
+  margin-left: 10px;
+}
+
+.color-picker-item input {
+  border: none;
+  width: 35px;
+  height: 34px;
+  background-color: white;
+}
+
+.color-picker-item label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.next-button {
+  width: 100%;
+  padding: 10px 2px;
+  background-color: rgb(26, 26, 26);
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  margin-top: auto;
+}
+
+.next-button:hover {
+  background-color: black;
+}
+
+/* Add/Adjust these styles in your FormBuilder.css or a dedicated CSS file */
+
+/* --- Linear Scale Changes --- */
+.linear-scale-input-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  width: 100%;
+  padding: 15px 0 20px; /* More padding below */
+  gap: 20px; /* Space between the top input group and the range slider */
+}
+
+.linear-scale-input-section .scale-input-group-top {
+  display: flex;
+  gap: 20px; /* Space between "Scale Starting" and "Scale Ending" boxes */
+  justify-content: center; /* Center these boxes */
+  width: 100%; /* Take full width to help centering */
+}
+
+.linear-scale-input-section .styled-input-box {
+  background-color: #e0e7f1; /* Light blue background as per image */
+  border-radius: 8px; /* More rounded corners */
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column; /* Stack value and label */
+  align-items: center; /* Center content within box */
+  min-width: 120px; /* Give boxes a consistent width */
+  font-size: 0.9em;
+  color: #555;
+  font-weight: 500;
+}
+
+.linear-scale-input-section .styled-input-box .scale-editable-value {
+  font-size: 1.4em; /* Larger number */
+  font-weight: bold;
+  color: #333;
+  cursor: text;
+  outline: none;
+  border-bottom: 1px dotted transparent; /* Initially transparent, will show on focus */
+  transition: border-color 0.2s ease-in-out;
+  padding: 2px 0;
+}
+
+.linear-scale-input-section .styled-input-box .scale-editable-value:focus {
+  border-color: #007bff;
+}
+
+.linear-scale-input-section .range-slider-with-labels {
+  display: flex;
+  align-items: center;
+  width: 90%; /* Adjust width for slider and labels */
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.linear-scale-input-section input[type="range"] {
+  flex-grow: 1;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  border-radius: 5px;
+}
+
+.linear-scale-input-section input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: grab;
+  border: 3px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.linear-scale-input-section input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: grab;
+  border: 3px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.linear-scale-input-section .linear-scale-label-editable {
+  font-size: 0.9em;
+  color: #555;
+  min-width: 50px;
+  text-align: center;
+  cursor: text;
+  outline: none;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 2px;
+}
+
+/* --- File Upload Changes --- */
+/* Updated File Upload CSS - Replace the existing file upload styles */
+
+/* File Upload Settings Container */
+.file-upload-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px 0;
+  width: 100%;
+}
+
+/* File Settings Container - Groups number of files and max file size */
+.file-settings-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.file-config {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-config label {
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+  min-width: 100px;
+}
+
+.file-config .styled-input-box,
+.file-config .styled-input-box-with-unit {
+  background-color: #e0e7f1;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.file-config .styled-input-box input[type="number"],
+.file-config .styled-input-box-with-unit input[type="number"] {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 40px;
+  text-align: right;
+  font-weight: bold;
+  color: #333;
+}
+
+.file-config .styled-input-box-with-unit span {
+  font-weight: bold;
+  color: #333;
+}
+
+/* File Types Container - Shows all file types together */
+.file-types-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.file-types-container > label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.file-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.file-types-grid .checkbox-label {
+  background-color: #e0e7f1;
+  border-radius: 8px;
+  padding: 2px 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #555;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.file-types-grid .checkbox-label:hover {
+  background-color: #d0dde9;
+}
+
+.file-types-grid .checkbox-label input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.file-types-grid .checkbox-label input[type="checkbox"]:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.file-types-grid .checkbox-label input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: white;
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* Rating Question (minor adjustment if needed based on new design) */
+.rating-settings {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+.rating-settings .stars-preview {
+  color: gold;
+  font-size: 1.5em;
+  margin-right: 2px;
+}
+
+.rating-settings .star-count-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating-settings .star-count-wrapper input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.form-element-card {
+  transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* Also ensure your .form-section has a focusable state */
+.form-section {
+  /* Existing styles */
+  outline: none; /* Remove default outline */
+}
+
+.form-section:focus,
+.form-section.selected {
+  box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.3);
+}
+
+/* For linear scale, ensure question-header is positioned correctly */
+.form-element-card.form-question-card {
+  display: flex;
+  flex-direction: column; /* This makes children stack vertically */
+}
+
+.form-element-card .question-header {
+  order: unset; /* Remove any explicit order if set previously */
+  margin-bottom: 10px; /* Space between question and scale */
+}
+
+.form-element-card .linear-scale-input-section {
+  order: unset; /* Remove any explicit order if set previously */
+  margin-top: 0; /* Adjust as needed, but this should be okay after reordering */
+}
+
+/* For image/video elements, if you want them to be easily clickable */
+.image-element img,
+.video-element iframe {
+  pointer-events: none; /* Prevents clicks on img/iframe from interfering with parent div click */
+}
+
+/* Add to FormBuilder.css or FormCanvas.css */
+
+/* Styles for condition building mode */
+.form-canvas.condition-builder-active {
+  pointer-events: all; /* Ensure clicks are still registered */
+  background-color: #f0f5ff; /* Light blue tint to indicate condition mode */
+  border: 2px dashed #007bff;
+}
+
+.form-element-card.condition-mode {
+  cursor: pointer; /* Indicate elements are clickable for condition selection */
+  transition: all 0.2s ease-in-out;
+}
+
+.form-element-card.condition-mode:hover {
+  background-color: #e6f7ff; /* Lighter blue on hover for eligible elements */
+  border-color: #007bff;
+}
+
+.form-element-card.condition-mode-inactive {
+  opacity: 0.4;
+  pointer-events: none; /* Disable all interaction */
+  filter: grayscale(80%);
+  position: relative;
+  cursor: not-allowed;
+}
+
+/* Overlay for inactive elements in condition mode */
+.condition-mode-inactive .condition-mode-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* White semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px; /* Match card border radius */
+  z-index: 5; /* Above other content */
+}
+
+.form-element-card.selected-for-condition {
+  border: 2px solid #28a745; /* Green border for the selected condition question */
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3);
+  background-color: #f0fff0; /* Very light green background */
+}
+
+.condition-selection-indicator {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #d4edda;
+  border: 1px solid #28a745;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #155724;
+  text-align: center;
+}
+
+/* Styles for the "Cancel Condition" and "Next (Select Pages)" buttons in FormElementsPanel */
+.panel-button.cancel-button {
+  background-color: #dc3545; /* Red for cancel */
+  margin-bottom: 10px;
+}
+
+.panel-button.cancel-button:hover {
+  background-color: #c82333;
+}
+
+.panel-button.next-button {
+  background-color: #007bff; /* Blue for next */
+}
+
+.panel-button.next-button:hover {
+  background-color: #0056b3;
+}
+
+/* Ensure original button styles are preserved if they are already defined for .panel-button */
+/* e.g., in FormElementsPanel.css */
+/* Example basic button style (if not already present) */
+.panel-button {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 1em;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.panel-button:hover {
+  background-color: #e0e0e0;
+}
+
+.panel-button:active {
+  transform: translateY(1px);
+}
+
+.panel-button i {
+  font-size: 1.1em;
+}
+
+/* For rating stars */
+.stars-preview .star.clickable {
+  cursor: pointer;
+}
+.stars-preview .star.clickable:hover {
+  color: orange; /* Highlight on hover */
+}
+.stars-preview .star.filled {
+  color: gold; /* Filled stars */
+}
+
+/* For Linear Scale disabled slider */
+.disabled-slider {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* For disabled inputs in condition mode */
+.read-only-input {
+  pointer-events: none;
+  background-color: #e9ecef;
+  opacity: 0.7;
+}
+
+/* Hide question type selector in condition mode */
+.question-type-selector[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Styles for condition building mode */
+.form-canvas.condition-builder-active {
+  background-color: #f0f5ff; /* Light blue tint to indicate condition mode */
+  /* border: 2px dashed #007bff; */ /* Removed for cleaner look based on image */
+}
+
+/* Base style for elements that can be interacted with in condition mode */
+.form-element-card.condition-mode {
+  cursor: pointer; /* Indicate elements are clickable for condition selection */
+  transition: all 0.2s ease-in-out;
+  position: relative; /* Needed for overlay positioning */
+}
+
+/* Hover effect for eligible questions in condition mode */
+.form-element-card.condition-mode:hover {
+  background-color: #e6f7ff; /* Lighter blue on hover for eligible elements */
+  border-color: #007bff; /* Highlight border */
+}
+
+/* Style for elements that are *not* eligible for conditions or are not the currently selected one */
+.form-element-card.condition-mode-inactive {
+  opacity: 0.4;
+  pointer-events: none; /* Disable all interaction */
+  filter: grayscale(80%);
+  position: relative;
+  cursor: not-allowed;
+}
+
+/* Overlay for inactive elements in condition mode */
+.condition-mode-inactive .condition-mode-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* White semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px; /* Match card border radius */
+  z-index: 5; /* Above other content */
+}
+
+/* Style for the question actively selected for setting a condition */
+.form-element-card.selected-for-condition {
+  border: 2px solid #28a745; /* Green border for the selected condition question */
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3);
+  background-color: #f0fff0; /* Very light green background */
+  pointer-events: all !important; /* Re-enable pointer events for the selected one */
+  opacity: 1 !important; /* Ensure full opacity */
+  filter: none !important; /* Remove grayscale */
+  z-index: 10; /* Bring to front */
+}
+
+/* Hide the overlay for the actively selected condition question */
+.form-element-card.selected-for-condition .condition-mode-overlay {
+  display: none;
+}
+
+/* Indicator shown below the form canvas when a condition question is selected */
+.condition-selection-indicator {
+  margin-top: 20px;
+  padding: 12px 15px;
+  background-color: #d4edda;
+  border: 1px solid #28a745;
+  border-radius: 8px;
+  font-size: 0.95em;
+  font-weight: bold;
+  color: #155724;
+  text-align: center;
+  width: fit-content;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure original button styles are preserved for .panel-button */
+.panel-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a4a4a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s,
+    background 0.2s; /* Add background for color change */
+}
+
+.panel-button:hover {
+  background-color: #e6eef7;
+  border-color: #0c4a6e;
+  color: #0c4a6e; /* Change text color on hover */
+}
+
+/* Specific button styles */
+.add-element-button {
+  /* Use this for the Add Question, Add Text etc. */
+  /* inherits from .panel-button */
+}
+
+.add-element-button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #f8f8f8;
+  border-color: #eee;
+  color: #888;
+}
+
+/* Styles for "Cancel Condition" (red button when mode is active) */
+.add-element-button[style*="background-color: rgb(220, 53, 69)"] {
+  /* Target the inline style for active state */
+  background-color: #dc3545 !important;
+  color: #fff !important;
+  border-color: #dc3545 !important;
+}
+
+.add-element-button[style*="background-color: rgb(220, 53, 69)"]:hover {
+  background-color: #c82333 !important;
+  border-color: #c82333 !important;
+}
+
+/* New "Continue" button specific style if it's the last one in the panel */
+.form-elements-panel .next-button.panel-button {
+  background-color: #0c4a6e;
+  color: #fff;
+  border-color: #0c4a6e;
+}
+
+.form-elements-panel .next-button.panel-button:hover {
+  background-color: #0a3a5a;
+  border-color: #0a3a5a;
+}
+
+/* For rating stars in condition mode */
+.stars-preview .star.clickable {
+  cursor: pointer;
+}
+.stars-preview .star.clickable:hover {
+  color: orange; /* Highlight on hover */
+}
+.stars-preview .star.filled {
+  color: gold; /* Filled stars */
+}
+
+/* For Linear Scale disabled slider */
+.disabled-slider {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* For disabled inputs in condition mode */
+input[readOnly].short-answer-input,
+textarea[readOnly].long-answer-textarea,
+input[readOnly].date-input,
+input[readOnly].scale-editable-value,
+input[readOnly].linear-scale-label-editable,
+input[readOnly].rating-settings input[type="number"] {
+  pointer-events: none;
+  background-color: #e9ecef;
+  opacity: 0.7;
+}
+
+/* Hide question type selector in condition mode */
+.question-type-selector[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+/* Make editable text fields non-editable in condition mode if covered by overlay */
+.form-element-card.condition-mode-inactive .editable-text {
+  pointer-events: none;
+  user-select: none;
+  border-bottom-color: transparent;
+}
+
+/* Condition Buttons Container */
+.condition-buttons-container {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  align-items: center;
+  padding: 20px 0; /* Add some vertical padding */
+  border-top: 1px dashed var(--border-color, #ccc); /* A subtle border to separate from questions */
+  margin-top: 20px; /* Space from the last section */
+}
+
+/* Common Button Styles */
+.add-condition-button,
+.remove-condition-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(
+    --button-border-radius,
+    5px
+  ); /* Rounded corners for buttons */
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text if you add one later */
+}
+
+/* Add Condition Button Specific Styles */
+.add-condition-button {
+  background-color: var(
+    --primary-color,
+    #007bff
+  ); /* Blue for add, or your primary theme color */
+  color: #fff; /* White text */
+}
+
+.add-condition-button:hover:not(:disabled) {
+  background-color: var(
+    --primary-color-dark,
+    #0056b3
+  ); /* Darker blue on hover */
+}
+
+.add-condition-button:disabled {
+  background-color: var(
+    --disabled-color,
+    #cccccc
+  ); /* Grey for disabled state */
+  color: var(--disabled-text-color, #666666);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Remove Condition Button Specific Styles */
+.remove-condition-button {
+  background-color: var(--danger-color, #dc3545); /* Red for remove/delete */
+  color: #fff; /* White text */
+}
+
+.remove-condition-button:hover {
+  background-color: var(--danger-color-dark, #c82333); /* Darker red on hover */
+}

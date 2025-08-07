@@ -1,0 +1,102 @@
+/* SelectPageModal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001; /* Higher than MediaUploadModal */
+}
+
+.select-page-modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  width: 90%;
+  max-width: 400px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.select-page-modal-content h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: black;
+  font-family: "inter";
+}
+
+.modal-description {
+  font-size: 0.95rem;
+  color: #474747;
+
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-field label {
+  font-weight: 600;
+  color: #444;
+  font-size: 1rem;
+}
+
+.modal-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f0f4f8;
+  cursor: pointer;
+  appearance: none; /* Remove default dropdown arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13%205.7L146.2%20202.7%2018.8%2075.4a17.6%2017.6%200%200%200-25.2%200%2017.6%2017.6%200%200%200%200%2025.2l130.4%20129.8c6.6%206.4%2014.3%209.7%2022.2%209.7s15.6-3.3%2022.2-9.7l130.4-129.8c6.6-6.4%206.6-17.6%200-24.2z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px top 50%;
+  background-size: 12px auto;
+}
+
+.modal-select:focus {
+  outline: none;
+  border-color: #0c4a6e;
+  box-shadow: 0 0 0 2px rgba(12, 74, 110, 0.2);
+}
+
+.modal-select option {
+  padding: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.modal-button.continue {
+  background-color: rgb(24, 24, 24);
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-button.continue:hover {
+  background-color: black;
+}

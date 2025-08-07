@@ -1,0 +1,35 @@
+
+# Node
+node_modules
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Editor directories and files
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# MacOS
+.DS_Store
+
+# Build artifacts
+build
+dist
+out
+
+# Client-specific (if any build output is generated outside client/build)
+client/build
+client/node_modules
+
+# Server-specific
+server/node_modules
+
+# If you have separate .env files for client/server
+client/.env
+server/.env

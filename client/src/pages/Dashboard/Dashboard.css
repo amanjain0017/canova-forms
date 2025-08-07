@@ -1,0 +1,245 @@
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 0;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 16px;
+  background-color: #fefdfd;
+  overflow-y: scroll;
+}
+
+.action-grid {
+  display: flex;
+  gap: 40px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.action-card {
+  background-color: white;
+  padding: 1.25rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.307);
+  transition: transform 0.2s;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #e0e0e0;
+  flex-grow: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  flex: 1;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+}
+
+.action-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+  background-color: #69b5f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.action-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.action-description {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-weight: 200;
+}
+
+.section {
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.307);
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  min-height: 100px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.card-options-icon {
+  cursor: pointer;
+}
+
+.card-options-wrapper {
+  position: relative;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0;
+  height: 140px;
+}
+
+.form-card .card-header {
+  justify-content: start;
+  margin-bottom: 0.75rem;
+}
+
+.form-card-icon-wrapper {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.form-card-icon-wrapper img {
+  width: 35px;
+  padding: 1rem;
+  background-color: #69b5f8;
+  border-radius: 12px;
+}
+
+.form-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.view-analysis-link {
+  color: #007bff;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.view-analysis-link:hover {
+  color: #0056b3;
+}
+
+.project-card {
+  padding: 0; /* Remove padding from the main card container */
+  height: 140px; /* Set a fixed height for consistent cards */
+}
+
+.project-card-icon-wrapper {
+  width: 100%;
+  height: 120px;
+  margin-bottom: 0.4rem;
+  background-color: #69b5f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.project-card-header {
+  background-color: #69b5f8;
+  height: 60%; /* Take up 60% of the card height */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card-header img {
+  width: 80px;
+  height: auto;
+  filter: brightness(0) invert(1); /* Change icon color to white */
+}
+
+.project-card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 18px;
+  height: 25%;
+  align-items: center;
+  text-decoration: none;
+}
+
+.project-card-footer .card-title {
+  margin: 0;
+}
+
+/* Dark theme specific styling */
+.dark.dashboard-container {
+  background-color: #121212;
+}
+
+.dark .main-content {
+  color: white;
+  background-color: rgb(59, 59, 59);
+}
+
+.dark .action-card,
+.dark .card {
+  background-color: #1e1e1e;
+  border-color: #333;
+  color: #e0e0e0;
+}
+
+.dark .action-description {
+  color: #a0a0a0;
+}
+
+.dark .form-card-icon-wrapper img {
+  background-color: #333;
+  filter: brightness(1) invert(0);
+}

@@ -1,0 +1,127 @@
+.flowchart-modal-overlay {
+  position: fixed;
+  top: 5;
+  right: 0;
+  bottom: 0;
+  left: 1;
+  width: 99.5vw;
+  height: 99.5vh;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+
+.flowchart-modal-content {
+  background-color: white;
+  border-radius: 16px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.flowchart-modal-content .react-flow {
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.flowchart-title-panel {
+  padding: 10px 15px;
+  background-color: #ffffff;
+  border-bottom: 2px solid black;
+  color: black;
+  margin: 0;
+
+  z-index: 10;
+  top: 15px;
+  left: 15px;
+  right: auto;
+  width: 100%;
+}
+
+.flowchart-title-panel h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.flowchart-close-panel {
+  z-index: 10; /* Ensure it's above ReactFlow elements */
+  top: 15px; /* Adjust position as needed */
+  right: 15px; /* Adjust position as needed */
+  left: auto; /* Override default left positioning if top-right is desired */
+  background: none; /* No background for the close button */
+  box-shadow: none; /* No shadow */
+  padding: 0;
+}
+
+.flowchart-close-panel .close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #64748b;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.flowchart-close-panel .close-button:hover {
+  background-color: #f1f5f9;
+  color: #334155;
+}
+
+.flowchart-footer-buttons {
+  padding: 15px 20px;
+  background-color: #f8fafc; /* Light background for the footer */
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between; /* Align buttons to the right */
+  gap: 15px; /* Space between buttons */
+  z-index: 10; /* Ensure it's above ReactFlow elements */
+}
+
+.flowchart-footer-buttons .next-button {
+  max-width: 200px;
+}
+
+/* Re-using your existing button styles for consistency */
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+.btn-secondary {
+  background: white;
+  color: #64748b;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover {
+  background: #f1f5f9;
+  color: #475569;
+}

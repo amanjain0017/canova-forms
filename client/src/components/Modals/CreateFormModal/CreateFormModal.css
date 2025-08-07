@@ -1,0 +1,171 @@
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+/* Modal Container */
+.modal-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 350px;
+  padding: 24px;
+  color: black;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: slide-in 0.3s forwards;
+}
+
+@keyframes slide-in {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 10px;
+}
+
+.modal-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 8px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 6px;
+  width: 25px;
+  height: 25px;
+}
+
+/* Close Button */
+.close-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: black;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-button:hover {
+  color: #555;
+}
+
+/* Modal Body */
+.modal-body p {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.8rem;
+  color: black;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  background-color: #e7eef5;
+}
+
+.input-group input::placeholder {
+  color: grey;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #6a82fb;
+}
+
+.error-message {
+  color: #e53e3e;
+  font-size: 0.8rem;
+  margin-bottom: 15px;
+}
+
+/* Create Button */
+.second .create-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #69b5f8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.2s, transform 0.1s;
+  display: flex;
+  justify-content: center;
+}
+
+.second .create-button:hover {
+  background-color: #4f9fe4;
+}
+
+.create-button:disabled {
+  background-color: #9ea9f1;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.project-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.second .project-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.second .project-select:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}

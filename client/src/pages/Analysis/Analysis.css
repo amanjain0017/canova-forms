@@ -1,0 +1,455 @@
+/* Overall Page Layout */
+
+.analysis-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: #333;
+  background-color: #f7f9fc;
+}
+
+.analysis-container.dark {
+  color: #e0e0e0;
+  background-color: #1a202c;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 1.3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 92vh;
+
+  overflow: scroll;
+}
+
+.analysis-container.dark .divider {
+  background-color: #4a5568;
+}
+
+/* Analysis Dashboard (AnalysisContent) */
+
+.analysis-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.75rem;
+}
+
+.analysis-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 150px;
+  position: relative;
+}
+
+.analysis-container.dark .analysis-card {
+  background-color: #2d3748;
+}
+
+.analysis-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 15px;
+  padding-top: 5px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.card-options-icon {
+  cursor: pointer;
+  height: 19px;
+}
+
+.card-icon-wrapper {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.5rem;
+}
+
+/* Project Analysis Page */
+
+.project-analysis-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.summary-card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 129px;
+}
+
+.analysis-container.dark .summary-card {
+  background-color: #2d3748;
+}
+
+.summary-card.full-width {
+  grid-column: span 2;
+}
+
+.summary-label {
+  font-size: 0.9rem;
+  color: #718096;
+  margin: 0;
+}
+
+.analysis-container.dark .summary-label {
+  color: #a0aec0;
+}
+
+.summary-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.summary-trend {
+  font-size: 0.9rem;
+  color: #48bb78;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 1rem;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.chart-legend-item::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.chart-legend-item.this-year::before {
+  background-color: #60a5fa;
+}
+
+.chart-legend-item.last-year::before {
+  background-color: #cbd5e0;
+}
+
+.chart-placeholder {
+  height: 150px;
+}
+
+.chart-placeholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+.form-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Form Analysis Page */
+
+.form-analysis-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-analysis-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-button {
+  color: #718096;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-button:hover {
+  color: #333;
+}
+
+.form-analysis-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 0 0;
+}
+
+.save-button {
+  background-color: #60a5fa;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.save-button:hover {
+  background-color: #3b82f6;
+}
+
+.form-analysis-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.chart-card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-container.dark .chart-card {
+  background-color: #2d3748;
+}
+
+.chart-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.chart-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pie-chart-svg {
+  width: 150px;
+  height: 150px;
+}
+
+.chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.legend-color-box {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: #60a5fa; /* Placeholder color */
+  margin-right: 0.5rem;
+}
+
+.bar-chart-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 200px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.bar-chart-bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.bar-chart-bar {
+  width: 30px;
+  border-radius: 5px 5px 0 0;
+  transition: height 0.5s ease;
+}
+
+.bar-chart-label {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 60px;
+}
+
+.download-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.download-button {
+  background-color: #4a5568;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.download-button:hover {
+  background-color: #2d3748;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .analysis-container {
+    flex-direction: column;
+  }
+  .main-content {
+    padding: 1rem;
+  }
+  .form-analysis-header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .form-analysis-title {
+    margin: 0;
+  }
+  .save-button {
+    width: 100%;
+  }
+}
+
+/* Example CSS for layout */
+.project-analysis-container .summary-grid-layout {
+  display: flex; /* or use grid */
+  gap: 20px; /* Space between columns */
+  margin-bottom: 20px; /* Space below the summary section */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.project-analysis-container .metrics-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between the two metric cards */
+  flex: 1; /* Allow this column to grow */
+  min-width: 250px; /* Adjust as needed */
+  justify-content: space-around;
+}
+
+.project-analysis-container .chart-column {
+  flex: 2; /* Allow the chart column to take more space */
+  min-width: 400px; /* Adjust as needed */
+  /* Reapply any full-width styles needed for the chart card */
+}
+
+/* Ensure summary cards have appropriate styling within their new context */
+.project-analysis-container .summary-card {
+  /* Existing styles for summary cards */
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.project-analysis-container .summary-card.full-width {
+  /* Remove or adjust if no longer strictly full-width in the new flex context */
+  width: auto;
+}
+
+.summary-card.chart-column {
+  /* Ensure the chart column takes appropriate space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px; /* Set a fixed height or use responsive techniques */
+  margin-top: 20px;
+  position: relative; /* Important for Chart.js responsiveness */
+}
+
+/* Adjustments for the grid layout if needed */
+.summary-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Metrics column, then Chart column */
+  gap: 20px; /* Space between columns */
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .summary-grid-layout {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
+}
