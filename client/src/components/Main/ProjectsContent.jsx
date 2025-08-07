@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useProjectContext } from "../../context/ProjectContext";
-import projectCardIcon from "../../assets/icons/projectCardIcon.png";
-import threeDotsIcon from "../../assets/icons/threeDotsIcon.png";
+import projectCardIcon from "./../assets/icons/projectCardIcon.png";
+import threedotsIcon from "./../../assets/icons/threedotsIcon.png";
 
 // Import components for Modals and Dropdown
 import CardDropdown from "./../Dropdowns/CardDropdown";
@@ -48,7 +48,7 @@ const renderProjectCard = (
           }}
         >
           <img
-            src={threeDotsIcon}
+            src={threedotsIcon}
             alt="options"
             className="card-options-icon"
           />

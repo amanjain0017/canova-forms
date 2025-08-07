@@ -4,7 +4,7 @@ import { useProjectContext } from "../../context/ProjectContext"; // Access Proj
 import { useFormContext } from "../../context/FormContext"; // Access FormContext
 import formIcon from "../../assets/icons/formIcon.png";
 import projectCardIcon from "../../assets/icons/projectCardIcon.png";
-import threeDotsIcon from "../../assets/icons/threeDotsIcon.png";
+import threeDotsIcon from "../../assets/icons/threedotsIcon.png";
 
 // Import components for Modals and Dropdown
 import CardDropdown from "./../Dropdowns/CardDropdown";
